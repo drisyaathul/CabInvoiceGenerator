@@ -20,4 +20,12 @@ public class CabInvoiceGenerator {
         }
         return totalFare;
     }
+    //UC2:
+    public double calculateAggregateFare(Ride[] rides){
+        double aggregateFare = 0;
+        for (Ride ride : rides) {
+            aggregateFare += calculateFare(ride.getDistance(),ride.getTime());
+        }
+        return aggregateFare;
+    }
 }
