@@ -29,4 +29,26 @@ public class CabInvoiceGeneratorTest {
         double aggregateFare = cabInvoiceGenerator.calculateAggregateFare(rides);
         Assertions.assertEquals(219,aggregateFare);
     }
+    // UC_3
+    @Test
+    public void testInvoiceGenerator() {
+        // Create an instance of CabInvoiceGenerator
+        CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
+
+        // Create an array of rides
+        Ride[] rides = {
+                new Ride(5, 15),
+                new Ride(3, 10),
+                new Ride(8, 25)
+        };
+
+        // Generate the invoice for the array of rides
+        Invoice invoice = cabInvoiceGenerator.invoiceGenerator(rides);
+
+        // Assert the invoice details
+        Assertions.assertEquals(3, invoice.getTotalNumberRides());
+        Assertions.assertEquals(210.0, invoice.getTotalFare());
+        Assertions.assertEquals(70, invoice.getAverageFarePerRide());
+    }
 }
+
