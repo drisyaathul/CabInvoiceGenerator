@@ -50,5 +50,6 @@ public class CabInvoiceGeneratorTest {
         Assertions.assertEquals(210.0, invoice.getTotalFare());
         Assertions.assertEquals(70, invoice.getAverageFarePerRide());
     }
+
 }
 

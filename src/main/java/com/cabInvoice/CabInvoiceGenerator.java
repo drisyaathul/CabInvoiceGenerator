@@ -44,4 +44,5 @@ public class CabInvoiceGenerator {
 
         return new Invoice(totalNumberOfRides,totalFare,averageFarePerRide);
     }
+
 }

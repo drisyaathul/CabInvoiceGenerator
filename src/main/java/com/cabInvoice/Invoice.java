@@ -44,4 +44,8 @@ public class Invoice {
                 ", averageFarePerRide=" + averageFarePerRide +
                 '}';
     }
+
+    public int getTotalNumberOfRides() {
+        return totalNumberRides;
+    }
 }
