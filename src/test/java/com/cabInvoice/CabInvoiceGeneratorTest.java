@@ -50,6 +50,25 @@ public class CabInvoiceGeneratorTest {
         Assertions.assertEquals(210.0, invoice.getTotalFare());
         Assertions.assertEquals(70, invoice.getAverageFarePerRide());
     }
+    @Test
+    public void givenUserShouldReturnInvoice(){
+        /*
+         * Given user id should return Invoice
+         */
+        InvoiceService invoiceService = new InvoiceService();
+        // Create an array of rides
+        Ride[] rides1 = {
+                new Ride(5, 3),
+                new Ride(10, 8),
+                new Ride(6, 4)
+        };
 
+        invoiceService.addRides("user101",rides1);
+        Invoice invoice = invoiceService.getInvoiceByUserId("user101");
+
+        Assertions.assertEquals(3,invoice.getTotalNumberOfRides());
+        Assertions.assertEquals(225,invoice.getTotalFare());
+        Assertions.assertEquals(75,invoice.getAverageFarePerRide());
+    }
 }
 
