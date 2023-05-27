@@ -5,11 +5,19 @@ public class Invoice {
     private int totalNumberRides;
     private double totalFare;
     private double averageFarePerRide;
+    private String userId;
 
     public Invoice(int totalRides, double totalFare, double averageFarePerRide) {
         this.totalNumberRides = totalRides;
         this.totalFare = totalFare;
         this.averageFarePerRide = averageFarePerRide;
+    }
+
+    public Invoice(int totalNumberRides, double totalFare, double averageFarePerRide, String userId) {
+        this.totalNumberRides = totalNumberRides;
+        this.totalFare = totalFare;
+        this.averageFarePerRide = averageFarePerRide;
+        this.userId = userId;
     }
 
     public int getTotalNumberRides() {

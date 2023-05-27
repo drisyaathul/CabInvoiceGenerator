@@ -30,5 +30,22 @@ public class InvoiceService {
 
         return invoice;
     }
+    public Invoice generateInvoice(String userId, Ride[]rides,UserType userType){
+        CabInvoiceGenerator cabInvoiceGenerator = new CabInvoiceGenerator();
+        if (userType.NORMAL.equals(userType)) {
+            int totalNumberOfRides = rides.length;
+            double totalFare = cabInvoiceGenerator.calculateAggregateFare(rides);
+            double averageFarePerRide = (totalFare/totalNumberOfRides);
+
+            return new Invoice(totalNumberOfRides,totalFare,averageFarePerRide,userId);
+        }else if (userType.PREMIUM.equals(userType)) {
+            int totalNumberOfRides = rides.length;
+            double totalFare = cabInvoiceGenerator.calculateAggregateFarePremium(rides);
+            double averageFarePerRide = (totalFare/totalNumberOfRides);
+
+            return new Invoice(totalNumberOfRides,totalFare,averageFarePerRide,userId);
+        }
+        return null;
+    }
 
 }
