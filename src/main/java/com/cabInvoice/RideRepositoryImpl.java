@@ -17,8 +17,8 @@ public class RideRepositoryImpl implements RideRepository {
         return userRides.getOrDefault(userId, new ArrayList<>());
     }
 
-    public void addRides(String userId, List<Ride> rides) {
-        userRides.put(userId, rides);
+    public void addRides(String userId, Ride[] rides) {
+        userRides.put(userId, List.of(rides));
     }
 
 }

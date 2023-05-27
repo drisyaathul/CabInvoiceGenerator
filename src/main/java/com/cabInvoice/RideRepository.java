@@ -5,4 +5,4 @@ import java.util.List;
 public interface RideRepository {
     List<Ride> getRidesByUserId(String userId);
 }
-}
+
